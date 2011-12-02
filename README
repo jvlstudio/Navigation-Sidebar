@@ -1,6 +1,6 @@
 This is my first open source project hosted on GitHub.
 
-Navigation Sidebar navigate view controllers through left-side menu.
+Navigation Sidebar navigate view controllers through left-side menu like in Facebook, GMail and Path for iOS.
 Menu can be shown by Pan (Drag) as well as by Swipe.
 It can be hidden by tapping at small piece of view controller on the right or by swiping as well.
 
@@ -21,7 +21,7 @@ Sample usage:
     UIViewController *controller1 = [[[UIViewController alloc] init] autorelease];
     controller1.view.backgroundColor = [UIColor blueColor];
     controller1.title = @"Blue one";
-    
+
     UIViewController *controller2 = [[[UIViewController alloc] init] autorelease];
     controller2.view.backgroundColor = [UIColor greenColor];
     controller2.title = @"Green one";
