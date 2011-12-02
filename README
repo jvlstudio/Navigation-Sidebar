@@ -1,1 +1,34 @@
 This is my first open source project hosted on GitHub.
+
+Navigation Sidebar navigate view controllers through left-side menu.
+Menu can be shown by Pan (Drag) as well as by Swipe.
+It can be hidden by tapping at small piece of view controller on the right or by swiping as well.
+
+For convenience:
+1) there is singleton accessible at [PSNavigationSidebar sharedNavigationSideBar]
+2) there are 2 notification are being posted to NoficationCenter: "SidebarWillHide" and "SidebarWillShow" just before showing and hiding the sidebar
+3) there are two methods for showing and hiding the sidebar:
+	-(void)showNavigationSideBar;
+	-(void)hideNavigationSideBar;
+
+Sample usage:
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    // Override point for customization after application launch.
+    
+    UIViewController *controller1 = [[[UIViewController alloc] init] autorelease];
+    controller1.view.backgroundColor = [UIColor blueColor];
+    controller1.title = @"Blue one";
+    
+    UIViewController *controller2 = [[[UIViewController alloc] init] autorelease];
+    controller2.view.backgroundColor = [UIColor greenColor];
+    controller2.title = @"Green one";
+    
+    [[PSNavigationSidebar sharedNavigationSideBar] setViewControllers:[NSArray arrayWithObjects:controller1, controller2, nil]];
+    
+    self.window.rootViewController = [PSNavigationSidebar sharedNavigationSideBar];
+    [self.window makeKeyAndVisible];
+    return YES;
+}
